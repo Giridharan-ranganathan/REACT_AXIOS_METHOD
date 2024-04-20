@@ -21,7 +21,13 @@
 
 .card{
   width: 295px;
-  height: 250px !important;
+  height: 300px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .card-title{
+  flex: 1 1 auto;
 }
 
 .span-text{
