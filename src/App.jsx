@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users`);
+        const { data } = await axios.get(`https://66240f2804457d4aaf9b8934.mockapi.io/axios_app/using_axios`);
         setAllDatas(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -25,7 +25,7 @@ function App() {
 
   const editTodo = async () => {
     try {
-      await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, {
+      await axios.put(`https://66240f2804457d4aaf9b8934.mockapi.io/axios_app/using_axios/${id}`, {
         name: name,
         username: username,
         email: email,
@@ -40,7 +40,7 @@ function App() {
 
   const createTodo = async () => {
     try {
-      await axios.post(`https://jsonplaceholder.typicode.com/users`, {
+      await axios.post(`https://66240f2804457d4aaf9b8934.mockapi.io/axios_app/using_axios`, {
         name: name,
         username: username,
         email: email,
@@ -55,7 +55,7 @@ function App() {
 
   const removeTodo = async (id) => {
     try {
-      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+      await axios.delete(`https://66240f2804457d4aaf9b8934.mockapi.io/axios_app/using_axios/${id}`);
       setIsRefresh(!isRefresh);
     } catch (error) {
       console.error('Error removing todo:', error);
@@ -75,6 +75,7 @@ function App() {
       <div className='container'>
         <div className='Main-header'>
           <h3>Data-base-Management</h3>
+          <small>CRUD Functions Using AXIOS</small>
         </div>
         <div className='form-Div'>
           <form className='col-lg-'>
@@ -94,7 +95,7 @@ function App() {
             </div>
             <div className="form-group col-md-4">
               <label htmlFor="phone">Phone</label>
-              <input type="text" className="form-control" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+              <input type="text" className="form-control" placeholder='Phone' id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
             </div>
             <div className="form-group">
               <button type="button" className="btn btn-primary" onClick={id ? editTodo : createTodo}>Add Data</button>
